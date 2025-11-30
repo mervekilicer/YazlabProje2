@@ -1,0 +1,457 @@
+:root {
+  --primary: #e50914;
+  --dark-bg: #000000;
+  --input-bg: #333333;
+  --text: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--text);
+  overflow-x: hidden; 
+}
+
+
+.login-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+ 
+  background: url('https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/f6d7434e-d6de-4185-a6d4-c77a2d08737b/US-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg');
+  background-size: cover;
+  
+  
+  animation: moveBackground 60s linear infinite alternate;
+}
+
+
+.login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 0;
+}
+
+
+@keyframes moveBackground {
+  0% { transform: scale(1.1) translate(0, 0); }
+  50% { transform: scale(1.1) translate(-20px, -20px); }
+  100% { transform: scale(1.1) translate(20px, 0); }
+}
+
+
+.netflix-logo {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 40px;
+  color: var(--primary);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: -1px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  z-index: 10;
+}
+
+
+.login-page-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-box {
+  background-color: rgba(0, 0, 0, 0.75); 
+  padding: 60px 68px 40px;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 450px;
+  min-height: 480px;
+}
+
+.login-box h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 28px;
+  color: white;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  background: #333;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.custom-input:focus {
+  background: #454545;
+  outline: none;
+}
+
+
+.signin-btn {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--primary);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.signin-btn:hover {
+  background-color: #c11119;
+}
+
+
+.signup-text {
+  color: #737373;
+  margin-top: 16px;
+  font-size: 16px;
+}
+
+.signup-text a {
+  color: white;
+  margin-left: 5px;
+}
+.signup-text a:hover { text-decoration: underline; }
+
+.login-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  
+  
+  background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/f6d7434e-d6de-4185-a6d4-c77a2d08737b/US-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg');
+  
+  
+  background-size: 800px auto; 
+  background-repeat: repeat; 
+  
+  
+  animation: slideBackground 40s linear infinite;
+}
+
+
+@keyframes slideBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    
+    background-position: 800px 800px; 
+  }
+}
+
+
+.movie-card {
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease, z-index 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.movie-card:hover {
+  transform: scale(1.05); 
+  z-index: 10;
+  cursor: pointer;
+}
+
+.poster-wrapper {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden; 
+  aspect-ratio: 2/3; 
+  background: #222;
+}
+
+.poster-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 15px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+  box-sizing: border-box;
+}
+
+
+.movie-card:hover .card-overlay {
+  opacity: 1;
+}
+
+
+.feed-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  max-width: 935px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.feed-posts {
+  width: 100%;
+  max-width: 470px; 
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.insta-card {
+  background-color: black;
+  border: 1px solid #363636;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+
+.insta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.story-ring {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  padding: 2px;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); /* Instagram Story halkası */
+}
+
+.story-ring img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid black;
+  object-fit: cover;
+}
+
+.username-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.username-block .username {
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+}
+
+.username-block .action-text {
+  font-size: 12px;
+  color: #a8a8a8;
+}
+
+.more-icon { color: white; cursor: pointer; }
+
+
+.insta-media {
+  width: 100%;
+  position: relative;
+  background: #121212;
+  border-top: 1px solid #262626;
+  border-bottom: 1px solid #262626;
+  overflow: hidden;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.blur-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px);
+  opacity: 0.4;
+}
+
+.main-img {
+  position: relative;
+  max-width: 100%;
+  max-height: 500px;
+  object-fit: contain; 
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+
+.insta-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+}
+
+.left-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.action-icon {
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s;
+}
+.action-icon:hover { color: #888; transform: scale(1.1); }
+
+.rating-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+
+.insta-caption {
+  padding: 0 14px 14px 14px;
+}
+
+.caption-text {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.caption-text .username {
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.caption-text .content-title {
+  font-weight: bold;
+  color: #e50914;
+}
+
+.user-review {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #e0e0e0;
+  line-height: 1.4;
+}
+
+.view-all-comments {
+  display: block;
+  margin-top: 8px;
+  color: #a8a8a8;
+  font-size: 14px;
+}
+
+
+.feed-sidebar {
+  width: 320px;
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  .feed-sidebar { display: block; }
+}
+
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sidebar-user img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.sidebar-user .username { font-weight: 600; font-size: 14px; }
+.sidebar-user .sub-text { color: #a8a8a8; font-size: 14px; }
+.sidebar-user .switch-link { margin-left: auto; color: #0095f6; font-size: 12px; font-weight: 600; }
+
+.suggestions-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  color: #a8a8a8;
+  margin-bottom: 15px;
+}
+
+.suggestions-header a { color: white; font-size: 12px; }
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+}
+.suggestion-item img {
+  width: 32px; height: 32px; border-radius: 50%; margin-right: 12px;
+}
+.follow-link {
+  margin-left: auto; background: none; border: none; 
+  color: #0095f6; font-size: 12px; font-weight: 600; cursor: pointer;
+}
+
+
+.empty-feed {
+  background: black;
+  border: 1px solid #363636;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+}
+.follow-btn {
+  display: inline-block;
+  margin-top: 15px;
+  background: #0095f6;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+}
